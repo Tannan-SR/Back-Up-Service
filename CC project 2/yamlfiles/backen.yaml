@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-python-app
+spec:
+  containers:
+  - name: my-sp
+    image: tejas299/script-executor:latest
+    command: ["sleep", "infinity"]  # Command to run the Python script
+    volumeMounts:
+    - name: my-pvc
+      mountPath: /App
+    - name: app-file
+      mountPath: /App/Folder
+  volumes:
+  - name: my-pvc
+    persistentVolumeClaim:
+      claimName: my-pvc
+  - name: app-file
+    persistentVolumeClaim:
+      claimName: app-file
+  restartPolicy: OnFailure
+

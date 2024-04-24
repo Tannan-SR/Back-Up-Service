@@ -1,0 +1,19 @@
+# Use Ubuntu as the base image
+FROM ubuntu:latest
+
+RUN mkdir Backup
+
+RUN mkdir Tokens
+
+WORKDIR /Backup
+
+RUN mkdir App
+
+COPY token.pickle .
+COPY Script.py .
+
+
+WORKDIR /Backup/App
+
+
+

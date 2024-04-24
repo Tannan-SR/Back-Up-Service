@@ -1,0 +1,28 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: my-python-cronjob
+spec:
+  schedule: "*/5 * * * *"  # Cron schedule for running every 5 minutes
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: my-sp
+            image: tejas299/script-executor:latest
+            command: ["python3", "Script.py"]  # Command to run your Python script
+            volumeMounts:
+            - name: my-pvc
+              mountPath: /App
+            - name: app-file
+              mountPath: /App/Folder
+          volumes:
+          - name: my-pvc
+            persistentVolumeClaim:
+              claimName: my-pvc
+          - name: app-file
+            persistentVolumeClaim:
+              claimName: app-file
+          restartPolicy: OnFailure
+

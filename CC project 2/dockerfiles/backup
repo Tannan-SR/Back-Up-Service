@@ -1,0 +1,14 @@
+FROM python:3.9
+
+
+# Install the required Python packages
+RUN pip install google-api-python-client>=2.100.0 \
+                google-auth-httplib2>=0.1.0 \
+                google-auth-oauthlib>=1.0.0 \
+                pickle5
+
+# Set the working directory
+WORKDIR /App
+
+RUN mkdir Folder
+
