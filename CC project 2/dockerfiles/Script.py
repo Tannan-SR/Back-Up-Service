@@ -19,11 +19,11 @@ logging.basicConfig(filename=log_file, level=logging.INFO, filemode='a')
 
 
 
-SCOPES = ['https://www.googleapis.com/auth/drive.file']
-API_KEY = 'AIzaSyCptvgJb2stpfMY5w2PSbR954ZjZtayxlE'
+SCOPES = ['']
+API_KEY = ''
 
-CLIENT_ID = '156984617325-bji3k2kihlj8s1mhvnp364kgnq702h24.apps.googleusercontent.com'
-CLIENT_SECRET = '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'
+CLIENT_ID = ''
+CLIENT_SECRET = ''
 
 def authenticate():
     cred = None
